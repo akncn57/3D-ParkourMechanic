@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 514077093786980484}
   - component: {fileID: 514077093794226146}
   - component: {fileID: 2951656890937368802}
+  - component: {fileID: 4906024272325402265}
+  - component: {fileID: 1555420241542778475}
   m_Layer: 0
   m_Name: P_Player_Root
   m_TagString: Untagged
@@ -60,7 +62,6 @@ MonoBehaviour:
   inputReader: {fileID: 514077093794226146}
   forceReceiver: {fileID: 2951656890937368802}
   mainCamera: {fileID: 0}
-  isRunning: 0
 --- !u!95 &514077093786980484
 Animator:
   serializedVersion: 4
@@ -107,6 +108,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   drag: 0.3
+--- !u!114 &4906024272325402265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514077093794226150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cdb1a0aa5cf9d42acd147b1ecbe407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environmentScanner: {fileID: 1555420241542778475}
+--- !u!114 &1555420241542778475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514077093794226150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de87018b5c8ccf441bad7f7f5984a880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardRayOffset: {x: 0, y: 0.25, z: 0}
+  forwardRayLength: 0.8
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &7725166846343610353
 GameObject:
   m_ObjectHideFlags: 0
