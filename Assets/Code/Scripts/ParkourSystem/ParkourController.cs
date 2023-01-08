@@ -11,6 +11,6 @@ public class ParkourController : MonoBehaviour
     {
         var hitData = environmentScanner.ObstacleCheck();
         
-        if (hitData.forwardHitFound) Debug.Log("Obstacle found " + hitData.forwardHit.transform.name);
+        if (hitData.ForwardHitFound) Debug.Log("Obstacle found " + hitData.ForwardHit.transform.name);
     }
 }
