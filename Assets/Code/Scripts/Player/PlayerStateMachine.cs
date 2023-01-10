@@ -30,8 +30,19 @@ namespace Code.Scripts.Player
         public ForceReceiver forceReceiver;
         public Camera mainCamera;
 
+        [HideInInspector]
+        public bool playerWalking;
+        [HideInInspector]
+        public bool playerRunning;
+        [HideInInspector]
+        public bool playerCrouching;
+        [HideInInspector]
+        public bool hasControl = true;
+
         private void Start()
         {
+            hasControl = true;
+            
             // Set default state.
             SwitchState(new PlayerFreeLookState(this));
         }
@@ -69,6 +80,13 @@ namespace Code.Scripts.Player
                 Quaternion.LookRotation(movement), 
                 deltaTime * rotationDumping
             );
+        }
+
+        public void SetHasControl(bool hasControl)
+        {
+            this.hasControl = hasControl;
+            characterController.enabled = hasControl;
+            if (!hasControl) animator.SetFloat("FreeLookMovementSpeed", 0);
         }
     }
 }

@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514077093793924814}
-  - component: {fileID: 2101255907075297709}
+  - component: {fileID: 3023909977144478298}
   - component: {fileID: 514077093786980484}
+  - component: {fileID: 2101255907075297709}
   - component: {fileID: 514077093794226146}
   - component: {fileID: 2951656890937368802}
   - component: {fileID: 4906024272325402265}
@@ -39,29 +40,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2101255907075297709
-MonoBehaviour:
+--- !u!143 &3023909977144478298
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514077093794226150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf67f71ecfe70248af4d60df8b9c244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkMovementSpeed: 2
-  runMovementSpeed: 5
-  crouchingMovementSpeed: 1
-  rotationDumping: 10
-  animationCrossFadeDuration: 0.1
-  animationDumpTimeDuration: 0.1
-  characterController: {fileID: 0}
-  animator: {fileID: 514077093786980484}
-  inputReader: {fileID: 514077093794226146}
-  forceReceiver: {fileID: 2951656890937368802}
-  mainCamera: {fileID: 0}
+  serializedVersion: 2
+  m_Height: 1.9
+  m_Radius: 0.26
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.96, z: 0}
 --- !u!95 &514077093786980484
 Animator:
   serializedVersion: 4
@@ -82,6 +78,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2101255907075297709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514077093794226150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf67f71ecfe70248af4d60df8b9c244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkMovementSpeed: 2
+  runMovementSpeed: 5
+  crouchingMovementSpeed: 1
+  rotationDumping: 10
+  animationCrossFadeDuration: 0.1
+  animationDumpTimeDuration: 0.1
+  characterController: {fileID: 3023909977144478298}
+  animator: {fileID: 514077093786980484}
+  inputReader: {fileID: 514077093794226146}
+  forceReceiver: {fileID: 2951656890937368802}
+  mainCamera: {fileID: 0}
+  playerWalking: 0
+  playerRunning: 0
+  playerCrouching: 0
+  hasControl: 1
 --- !u!114 &514077093794226146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af50c82312df7034182c26411c8ddceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 3023909977144478298}
   drag: 0.3
 --- !u!114 &4906024272325402265
 MonoBehaviour:
@@ -120,7 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cdb1a0aa5cf9d42acd147b1ecbe407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parkourActions:
+  - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
+  - {fileID: 11400000, guid: 8bc932dbc86948245b889da304a535b3, type: 2}
   environmentScanner: {fileID: 1555420241542778475}
+  playerStateMachine: {fileID: 2101255907075297709}
 --- !u!114 &1555420241542778475
 MonoBehaviour:
   m_ObjectHideFlags: 0
