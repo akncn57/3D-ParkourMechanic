@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StepUp
   m_EditorClassIdentifier: 
   animationName: StepUp
-  minHeight: 0.5
-  maxHeight: 0.9
+  minHeight: 0.4
+  maxHeight: 0.7
