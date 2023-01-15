@@ -53,8 +53,20 @@ public class ParkourController : MonoBehaviour
         
         var animationState = playerStateMachine.animator.GetNextAnimatorStateInfo(0);
         if (!animationState.IsName(action.AnimationName)) Debug.LogError("Parkour animation is wrong!");
-        yield return new WaitForSeconds(animationState.length);
-        
+
+        float timer = 0f;
+        while (timer <= animationState.length)
+        {
+            timer += Time.deltaTime;
+            if (action.RotateToObstacle) transform.rotation = Quaternion.RotateTowards(
+                transform.rotation, 
+                action.TargetRotation, 
+                playerStateMachine.playerRotationSpeed * Time.deltaTime
+                );
+            
+            yield return null;
+        }
+
         playerStateMachine.SetHasControl(true);
         _inAction = false;
         _isJumping = false;

@@ -93,6 +93,7 @@ MonoBehaviour:
   walkMovementSpeed: 2
   runMovementSpeed: 5
   crouchingMovementSpeed: 1
+  playerRotationSpeed: 10
   rotationDumping: 10
   animationCrossFadeDuration: 0.1
   animationDumpTimeDuration: 0.1
@@ -146,6 +147,7 @@ MonoBehaviour:
   parkourActions:
   - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
   - {fileID: 11400000, guid: 8bc932dbc86948245b889da304a535b3, type: 2}
+  - {fileID: 11400000, guid: e6a99430b0925db46a62c4721c4fef95, type: 2}
   environmentScanner: {fileID: 1555420241542778475}
   playerStateMachine: {fileID: 2101255907075297709}
 --- !u!114 &1555420241542778475

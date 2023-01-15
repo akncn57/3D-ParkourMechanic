@@ -14,13 +14,15 @@ namespace Code.Scripts.Player
         public float runMovementSpeed;
         [Range(1, 10)]
         public float crouchingMovementSpeed;
+        [Range(0, 500)]
+        public float playerRotationSpeed;
         [Range(1, 15)]
         public float rotationDumping;
         [Range(0, 1)]
         public float animationCrossFadeDuration;
         [Range(0, 1)]
         public float animationDumpTimeDuration;
-    
+
         [Space][Space][Space]
     
         [Header("Other Components")][Space]

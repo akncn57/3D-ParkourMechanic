@@ -905,6 +905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2101255907075297709, guid: 8e5e6de247d84574cb425e49f3375956,
         type: 3}
+      propertyPath: playerRotationSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101255907075297709, guid: 8e5e6de247d84574cb425e49f3375956,
+        type: 3}
       propertyPath: freeLookMovementSpeed
       value: 2
       objectReference: {fileID: 0}
