@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: ClimbUp
   m_EditorClassIdentifier: 
   animationName: ClimbUp
-  minHeight: 1.8
-  maxHeight: 2
+  minHeight: 1.9
+  maxHeight: 2.1
+  rotateToObstacle: 1
+  postActionDelay: 0.3
+  enableTargetMatching: 1
+  matchBodyPart: 5
+  matchStartTime: 0.08
+  matchTargetTime: 0.28
+  matchPositionWeight: {x: 0, y: 1, z: 1}
