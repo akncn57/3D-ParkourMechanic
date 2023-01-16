@@ -12,8 +12,7 @@ namespace Code.Scripts.Player
         public override void OnEnter()
         {
             PlayerStateMachine.inputReader.CrouchEvent += PlayerStand;
-            PlayerStateMachine.inputReader.RunEvent += PlayerRun;
-            
+
             // Play crouch blend tree animation.
             PlayerStateMachine.animator.CrossFadeInFixedTime(_crouchingBlendTreeHash, PlayerStateMachine.animationCrossFadeDuration);
         }
@@ -43,19 +42,12 @@ namespace Code.Scripts.Player
         public override void OnExit()
         {
             PlayerStateMachine.inputReader.CrouchEvent -= PlayerStand;
-            PlayerStateMachine.inputReader.RunEvent -= PlayerRun;
         }
 
         // Listening crouch input for stand.
         private void PlayerStand()
         {
             PlayerStateMachine.SwitchState(new PlayerFreeLookState(PlayerStateMachine));
-        }
-        
-        // Listening run input.
-        private void PlayerRun()
-        {
-            PlayerStateMachine.SwitchState(new PlayerRunningState(PlayerStateMachine));
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Code.Scripts.Player
 
         public override void OnEnter()
         {
-            PlayerStateMachine.inputReader.RunEvent += PlayerWalk;
             PlayerStateMachine.inputReader.CrouchEvent += PlayerCrouch;
         
             // Play running blend tree animation.
@@ -42,7 +41,6 @@ namespace Code.Scripts.Player
 
         public override void OnExit()
         {
-            PlayerStateMachine.inputReader.RunEvent -= PlayerWalk;
             PlayerStateMachine.inputReader.CrouchEvent -= PlayerCrouch;
         }
     
