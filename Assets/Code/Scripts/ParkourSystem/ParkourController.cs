@@ -94,6 +94,8 @@ namespace Code.Scripts.ParkourSystem
                 );
                 
                 if (action.EnableTargetMatching) MatchTarget(action);
+
+                if (playerStateMachine.animator.IsInTransition(0) && timer > 0.5f) break;
             
                 yield return null;
             }

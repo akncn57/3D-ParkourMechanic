@@ -102,10 +102,6 @@ MonoBehaviour:
   inputReader: {fileID: 514077093794226146}
   forceReceiver: {fileID: 2951656890937368802}
   mainCamera: {fileID: 0}
-  playerWalking: 0
-  playerRunning: 0
-  playerCrouching: 0
-  hasControl: 1
 --- !u!114 &514077093794226146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parkourActions:
-  - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
   - {fileID: 11400000, guid: 8bc932dbc86948245b889da304a535b3, type: 2}
+  - {fileID: 11400000, guid: d69d7e4b38e42b648b82fa0717d9343d, type: 2}
+  - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
   - {fileID: 11400000, guid: e6a99430b0925db46a62c4721c4fef95, type: 2}
   environmentScanner: {fileID: 1555420241542778475}
   playerStateMachine: {fileID: 2101255907075297709}

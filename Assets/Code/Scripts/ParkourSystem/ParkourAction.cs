@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code.Scripts.ParkourSystem
@@ -15,7 +16,8 @@ namespace Code.Scripts.ParkourSystem
         public float MatchStartTime => matchStartTime;
         public float MatchTargetTime => matchTargetTime;
         public Vector3 MatchPositionWeight => matchPositionWeight;
-    
+
+        [SerializeField] private string obstacleTag;
         [SerializeField] private string animationName;
         [SerializeField] private float minHeight;
         [SerializeField] private float maxHeight;
@@ -31,6 +33,9 @@ namespace Code.Scripts.ParkourSystem
         
         public bool CheckIfPossible(ObstacleHitData hitData, Transform player)
         {
+            // If hit object's tag don't equal obstacle tag.
+            if (!string.IsNullOrEmpty(obstacleTag) && !hitData.ForwardHit.transform.CompareTag(obstacleTag)) return false;
+            
             // Find hit object height..
             var height = hitData.HeightHit.point.y - player.position.y;
             

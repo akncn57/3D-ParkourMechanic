@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54127355ed9465e4ba36ed44fdbe3630, type: 3}
   m_Name: StepUp
   m_EditorClassIdentifier: 
+  obstacleTag: ThicObstacle
   animationName: StepUp
   minHeight: 0.2
   maxHeight: 0.65
