@@ -92,12 +92,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Crouch"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""fd6260b1-cb04-4a5a-bc80-4880bf1cf776"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Run"",

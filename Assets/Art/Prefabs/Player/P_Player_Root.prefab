@@ -168,6 +168,8 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  rayFreeColor: {r: 1, g: 0, b: 0, a: 0}
+  rayHitColor: {r: 0.16316211, g: 1, b: 0, a: 0}
 --- !u!1 &7725166846343610353
 GameObject:
   m_ObjectHideFlags: 0

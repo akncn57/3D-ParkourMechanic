@@ -7,6 +7,8 @@ namespace Code.Scripts.Player
 {
     public class PlayerStateMachine : StateMachines
     {
+        #region Inspector Fields
+
         [Header("Player Properties")][Space]
         [Range(1, 10)]
         public float walkMovementSpeed;
@@ -31,23 +33,28 @@ namespace Code.Scripts.Player
         public InputReader inputReader;
         public ForceReceiver forceReceiver;
         public Camera mainCamera;
+        
+        #endregion
 
-        [HideInInspector]
-        public bool playerWalking;
-        [HideInInspector]
-        public bool playerRunning;
-        [HideInInspector]
-        public bool playerCrouching;
-        [HideInInspector]
-        public bool hasControl = true;
+        #region Private Methods
 
+        private bool _hasControl = true;
+        
+        #endregion
+        
+        #region Unity Life Cycles
+        
         private void Start()
         {
-            hasControl = true;
+            _hasControl = true;
             
             // Set default state.
             SwitchState(new PlayerFreeLookState(this));
         }
+        
+        #endregion
+        
+        #region Public Methods
         
         /// <summary>
         /// Calculate move with camera's move and player input. 
@@ -57,8 +64,8 @@ namespace Code.Scripts.Player
         {
             // Get z axis and right values and make normalize.
             var mainCameraTransform = mainCamera.transform;
-            Vector3 forward = mainCameraTransform.forward;
-            Vector3 right = mainCameraTransform.right;
+            var forward = mainCameraTransform.forward;
+            var right = mainCameraTransform.right;
             
             forward.y = 0f;
             right.y = 0f;
@@ -83,12 +90,18 @@ namespace Code.Scripts.Player
                 deltaTime * rotationDumping
             );
         }
-
+        
+        /// <summary>
+        /// Set player controller.
+        /// </summary>
+        /// <param name="hasControl">Get control value.</param>
         public void SetHasControl(bool hasControl)
         {
-            this.hasControl = hasControl;
+            _hasControl = hasControl;
             characterController.enabled = hasControl;
             if (!hasControl) animator.SetFloat("FreeLookMovementSpeed", 0);
         }
+        
+        #endregion
     }
 }

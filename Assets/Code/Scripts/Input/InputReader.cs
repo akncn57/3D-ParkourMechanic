@@ -8,12 +8,12 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
+    public bool IsCrouching { get; private set; }
     public bool IsRunning { get; private set; }
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action CancelEvent;
-    public event Action CrouchEvent;
 
     private Controls _controls;
     
@@ -74,8 +74,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (!context.performed) { return; }
-        CrouchEvent?.Invoke();
+        if (context.started)
+        {
+            IsCrouching = true;
+        }
+        else if (context.canceled)
+        {
+            IsCrouching = false;
+        }
     }
 
     public void OnRun(InputAction.CallbackContext context)

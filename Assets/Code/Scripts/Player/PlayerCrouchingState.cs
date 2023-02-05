@@ -4,15 +4,24 @@ namespace Code.Scripts.Player
 {
     public class PlayerCrouchingState : PlayerBaseState
     {
+
+        #region Constructor
+        
         public PlayerCrouchingState(PlayerStateMachine playerStateMachine) : base(playerStateMachine){}
         
+        #endregion
+
+        #region Private Fields
+
         private readonly int _crouchingMovementSpeedHash = Animator.StringToHash("CrouchingMovementSpeed");
         private readonly int _crouchingBlendTreeHash = Animator.StringToHash("CrouchingBlendTree");
+        
+        #endregion
+
+        #region StateMachine Events
 
         public override void OnEnter()
         {
-            PlayerStateMachine.inputReader.CrouchEvent += PlayerStand;
-
             // Play crouch blend tree animation.
             PlayerStateMachine.animator.CrossFadeInFixedTime(_crouchingBlendTreeHash, PlayerStateMachine.animationCrossFadeDuration);
         }
@@ -37,17 +46,12 @@ namespace Code.Scripts.Player
         
             // Player camera face movement.
             PlayerStateMachine.FaceMovementDirection(movement, deltaTime);
+            
+            if (!PlayerStateMachine.inputReader.IsCrouching) PlayerStateMachine.SwitchState(new PlayerFreeLookState(PlayerStateMachine));
         }
 
-        public override void OnExit()
-        {
-            PlayerStateMachine.inputReader.CrouchEvent -= PlayerStand;
-        }
-
-        // Listening crouch input for stand.
-        private void PlayerStand()
-        {
-            PlayerStateMachine.SwitchState(new PlayerFreeLookState(PlayerStateMachine));
-        }
+        public override void OnExit(){}
+        
+        #endregion
     }
 }

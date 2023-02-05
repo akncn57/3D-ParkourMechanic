@@ -4,12 +4,12 @@ namespace Code.Scripts.StateMachine
 {
     public abstract class StateMachines : MonoBehaviour
     {
-        private State _currentState;
+        public static State CurrentState { get; private set; }
 
         private void Update()
         {
             // Start current state tick method.
-            _currentState?.Tick(Time.deltaTime);
+            CurrentState?.Tick(Time.deltaTime);
         }
     
         /// <summary>
@@ -19,12 +19,12 @@ namespace Code.Scripts.StateMachine
         public void SwitchState(State newState)
         {
             // First, start exit method in current state.
-            _currentState?.OnExit();
+            CurrentState?.OnExit();
         
-            _currentState = newState;
+            CurrentState = newState;
         
             // Start enter method in new state.
-            _currentState?.OnEnter();
+            CurrentState?.OnEnter();
         }
     }   
 }

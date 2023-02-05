@@ -4,15 +4,23 @@ namespace Code.Scripts.Player
 {
     public class PlayerFreeLookState : PlayerBaseState
     {
+        #region Constructor
+        
+        public PlayerFreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine){}
+        
+        #endregion
+        
+        #region Private Fields
+        
         private readonly int _freeLookSpeedHash = Animator.StringToHash("FreeLookMovementSpeed");
         private readonly int _freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+        
+        #endregion
 
-        public PlayerFreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine){}
-    
+        #region StateMachine Events
+        
         public override void OnEnter()
         {
-            PlayerStateMachine.inputReader.CrouchEvent += PlayerCrouch;
-
             // Play free look blend tree animation.
             PlayerStateMachine.animator.CrossFadeInFixedTime(_freeLookBlendTreeHash, PlayerStateMachine.animationCrossFadeDuration);
         }
@@ -31,7 +39,8 @@ namespace Code.Scripts.Player
                 PlayerStateMachine.animator.SetFloat(_freeLookSpeedHash, 0, PlayerStateMachine.animationDumpTimeDuration, deltaTime);
                 return;
             }
-
+            
+            if (PlayerStateMachine.inputReader.IsCrouching) PlayerStateMachine.SwitchState(new PlayerCrouchingState(PlayerStateMachine));
             if (PlayerStateMachine.inputReader.IsRunning) PlayerStateMachine.animator.SetFloat(_freeLookSpeedHash, 2, PlayerStateMachine.animationDumpTimeDuration, deltaTime);
             else PlayerStateMachine.animator.SetFloat(_freeLookSpeedHash, 1, PlayerStateMachine.animationDumpTimeDuration, deltaTime);
 
@@ -39,15 +48,8 @@ namespace Code.Scripts.Player
             PlayerStateMachine.FaceMovementDirection(movement, deltaTime);
         }
 
-        public override void OnExit()
-        {
-            PlayerStateMachine.inputReader.CrouchEvent -= PlayerCrouch;
-        }
+        public override void OnExit(){}
         
-        // Listening crouch input.
-        private void PlayerCrouch()
-        {
-            PlayerStateMachine.SwitchState(new PlayerCrouchingState(PlayerStateMachine));
-        }
+        #endregion
     }
 }
