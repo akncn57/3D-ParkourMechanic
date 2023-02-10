@@ -8,6 +8,7 @@ namespace Code.Scripts.ParkourSystem
     {
         public Quaternion TargetRotation { get; set; }
         public Vector3 MatchPosition { get; set; }
+        public bool Mirror { get; set; }
         public string AnimationName => animationName;
         public bool RotateToObstacle => rotateToObstacle;
         public float PostActionDelay => postActionDelay;
@@ -26,12 +27,12 @@ namespace Code.Scripts.ParkourSystem
     
         [Header("Target Matching")]
         [SerializeField] private bool enableTargetMatching = true;
-        [SerializeField] private AvatarTarget matchBodyPart;
+        [SerializeField] protected AvatarTarget matchBodyPart;
         [SerializeField] private float matchStartTime;
         [SerializeField] private float matchTargetTime;
         [SerializeField] private Vector3 matchPositionWeight = new Vector3(0, 1, 0);
         
-        public bool CheckIfPossible(ObstacleHitData hitData, Transform player)
+        public virtual bool CheckIfPossible(ObstacleHitData hitData, Transform player)
         {
             // If hit object's tag don't equal obstacle tag.
             if (!string.IsNullOrEmpty(obstacleTag) && !hitData.ForwardHit.transform.CompareTag(obstacleTag)) return false;

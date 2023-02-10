@@ -9,6 +9,8 @@ namespace Code.Scripts.ParkourSystem
         [SerializeField] private Vector3 forwardRayOffset;
         [SerializeField] private float forwardRayLength;
         [SerializeField] private float heightRayLength;
+        [SerializeField] private float ledgeRayLength;
+        [SerializeField] private float ledgeHeightThreshold;
         [SerializeField] private LayerMask obstacleLayer;
         [SerializeField] private Color rayFreeColor;
         [SerializeField] private Color rayHitColor;
@@ -57,6 +59,24 @@ namespace Code.Scripts.ParkourSystem
             }
 
             return hitData;
+        }
+
+        public bool LedgeCheck(Vector3 moveDirection)
+        {
+            if (moveDirection == Vector3.zero) return false;
+
+            var originOffset = 0.5f;
+            var origin = transform.position + moveDirection * originOffset + Vector3.up;
+
+            if (Physics.Raycast(origin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer))
+            {
+                Debug.DrawRay(origin, Vector3.down * ledgeRayLength, Color.yellow);
+                var height = transform.position.y - hit.point.y;
+
+                if (height > ledgeHeightThreshold) return true;
+            }
+
+            return false;
         }
     }
 

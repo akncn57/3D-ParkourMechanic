@@ -19,7 +19,8 @@ namespace Code.Scripts.ParkourSystem
         
         private bool _isJumping;
         private bool _inAction;
-        
+        private readonly int _mirrorHash = Animator.StringToHash("Mirror");
+
         #endregion
         
         #region Unity Life Cycles
@@ -68,6 +69,8 @@ namespace Code.Scripts.ParkourSystem
             
             // Close player control.
             playerStateMachine.SetHasControl(false);
+            
+            playerStateMachine.animator.SetBool(_mirrorHash, action.Mirror);
             
             // Play parkour action animation.
             playerStateMachine.animator.CrossFade(

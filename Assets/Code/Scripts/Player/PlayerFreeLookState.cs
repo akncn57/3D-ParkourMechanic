@@ -29,6 +29,9 @@ namespace Code.Scripts.Player
         {
             // Get movement direction.
             Vector3 movement = PlayerStateMachine.CalculateMovement();
+            
+            PlayerStateMachine.IsOnLedge = PlayerStateMachine.environmentScanner.LedgeCheck(movement);
+            if (PlayerStateMachine.IsOnLedge) Debug.Log("IS ON LEDGE !!!!");
 
             if (PlayerStateMachine.inputReader.IsRunning) Move(movement * PlayerStateMachine.runMovementSpeed, deltaTime);
             else Move(movement * PlayerStateMachine.walkMovementSpeed, deltaTime);

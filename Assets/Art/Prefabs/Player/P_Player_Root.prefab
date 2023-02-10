@@ -102,6 +102,7 @@ MonoBehaviour:
   inputReader: {fileID: 514077093794226146}
   forceReceiver: {fileID: 2951656890937368802}
   mainCamera: {fileID: 0}
+  environmentScanner: {fileID: 1555420241542778475}
 --- !u!114 &514077093794226146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3023909977144478298}
-  drag: 0.3
+  drag: 1
 --- !u!114 &4906024272325402265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parkourActions:
   - {fileID: 11400000, guid: 8bc932dbc86948245b889da304a535b3, type: 2}
-  - {fileID: 11400000, guid: d69d7e4b38e42b648b82fa0717d9343d, type: 2}
+  - {fileID: 11400000, guid: 809414f1aa329ed44b1348e45a3de135, type: 2}
   - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
   - {fileID: 11400000, guid: e6a99430b0925db46a62c4721c4fef95, type: 2}
   environmentScanner: {fileID: 1555420241542778475}
@@ -162,6 +163,8 @@ MonoBehaviour:
   forwardRayOffset: {x: 0, y: 0.25, z: 0}
   forwardRayLength: 0.8
   heightRayLength: 5
+  ledgeRayLength: 10
+  ledgeHeightThreshold: 0.75
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64

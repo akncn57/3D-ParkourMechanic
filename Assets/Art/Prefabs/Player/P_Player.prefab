@@ -913,6 +913,11 @@ PrefabInstance:
       propertyPath: freeLookMovementSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2951656890937368802, guid: 8e5e6de247d84574cb425e49f3375956,
+        type: 3}
+      propertyPath: drag
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e5e6de247d84574cb425e49f3375956, type: 3}
 --- !u!4 &308417027168181230 stripped

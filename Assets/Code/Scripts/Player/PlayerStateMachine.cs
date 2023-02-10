@@ -1,3 +1,4 @@
+using Code.Scripts.ParkourSystem;
 using Code.Scripts.StateMachine;
 using Unity.Collections;
 using UnityEngine;
@@ -33,10 +34,17 @@ namespace Code.Scripts.Player
         public InputReader inputReader;
         public ForceReceiver forceReceiver;
         public Camera mainCamera;
+        public EnvironmentScanner environmentScanner;
         
         #endregion
 
-        #region Private Methods
+        #region Public Fields
+
+        public bool IsOnLedge { get; set; }
+
+        #endregion
+
+        #region Private Fields
 
         private bool _hasControl = true;
         
