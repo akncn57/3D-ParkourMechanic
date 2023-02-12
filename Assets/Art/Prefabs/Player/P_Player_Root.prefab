@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 809414f1aa329ed44b1348e45a3de135, type: 2}
   - {fileID: 11400000, guid: 4790b010089b407458b96c3b43b6e08c, type: 2}
   - {fileID: 11400000, guid: e6a99430b0925db46a62c4721c4fef95, type: 2}
+  jumpDownAction: {fileID: 11400000, guid: 5205c8d408573f94a99c955ffa2c615c, type: 2}
   environmentScanner: {fileID: 1555420241542778475}
   playerStateMachine: {fileID: 2101255907075297709}
 --- !u!114 &1555420241542778475
