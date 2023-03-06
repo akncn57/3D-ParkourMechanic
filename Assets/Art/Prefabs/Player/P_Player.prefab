@@ -903,6 +903,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Root
       objectReference: {fileID: 0}
+    - target: {fileID: 1555420241542778475, guid: 8e5e6de247d84574cb425e49f3375956,
+        type: 3}
+      propertyPath: rayHitColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555420241542778475, guid: 8e5e6de247d84574cb425e49f3375956,
+        type: 3}
+      propertyPath: rayFreeColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2101255907075297709, guid: 8e5e6de247d84574cb425e49f3375956,
         type: 3}
       propertyPath: playerRotationSpeed
